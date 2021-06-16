@@ -1,0 +1,25 @@
+<script>
+    import ScheduleBox from "./ScheduleBox.svelte";
+
+    const availableSchedules = [];
+    let date = new Date();
+    date.setHours(0);
+    date.setMinutes(0);
+    do {
+        let formatTime = date.getHours() + ":" + date.getMinutes();
+        date.setTime(date.getTime() + 30 * 60 * 1000);
+        availableSchedules.push(formatTime);
+        console.log(availableSchedules);
+    } while (date.getHours() != 0 || date.getMinutes() != 0);
+    console.log(date.getHours() != 23 || date.getMinutes() != 30)
+
+</script>
+
+<div class="Scheduler">
+    <div class="Scheduler-title" />
+    <div class="Scheduler-content">
+        {#each availableSchedules as schedule}
+            <ScheduleBox {schedule} />
+        {/each}
+    </div>
+</div>
