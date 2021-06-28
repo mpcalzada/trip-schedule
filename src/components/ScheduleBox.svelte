@@ -38,6 +38,7 @@
 
     .ScheduleBox-content button {
         min-width: 10em;
+        border-radius: 40px;
     }
 
     .active-select {
